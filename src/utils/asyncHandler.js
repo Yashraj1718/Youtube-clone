@@ -1,16 +1,17 @@
-const  asyncHandler = (requestHandler) => (req,res,next) =>{
-    Promise.resolve(requestHandler(req,res,next)).catch((err) =>{
-        next(err)
-    })
+const  asyncHandler = (requestHandler) =>{
+    return (req,res,next) =>{
+    Promise.resolve(requestHandler(req,res,next)).catch((err) =>
+        next(err))
+}
 }
 
 export {asyncHandler}
 
 
 //const asyncHandler = () => {}
-//const asyncHandler = (function) => {}
-//const asyncHandler = (function) => 
-// () => {}
+//const asyncHandler = (function) => () => {}
+//const asyncHandler = (function) => async () =. {}
+// 
 //                                    
 //
 //this above thing is called higherorder function which taked function as paramerter so basically thing functtion act as a variable here
